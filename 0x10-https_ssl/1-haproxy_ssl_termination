@@ -33,18 +33,18 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend  kenrique-frontend-http
+frontend  eyram-bbm-frontend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
         default_backend kenrique-backend
 
-frontend kenrique-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.kenrique.tech.pem
+frontend eyram-bbm-frontend-https
+	bind *:443 ssl crt /etc/haproxy/certs/www.eyram.tech.pem
 	http-request set-header X-Forwarded-Proto https
 	default_backend kenrique-backend
 
-backend kenrique-backend
+backend eyram-bbm-backend
         balance roundrobin
-        server 63210-web-01 100.25.19.204:80 check
-        server 63210-web-02 54.157.159.85:80 check
+        server 63210-web-01 3.85.16.160:80 check
+        server 63210-web-02 100.26.11.174:80 check
